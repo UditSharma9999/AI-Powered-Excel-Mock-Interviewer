@@ -108,4 +108,5 @@ wrapt==1.17.3
 wsproto==1.2.0
 yarl==1.20.1
 zstandard==0.25.0
+eventlet
 
