@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Excel Mock Interviewer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎯 AI-Powered Excel Mock Interviewer</h1>
+            <p>Practice your Excel skills with our intelligent voice-based interviewer</p>
+        </header>
+
+        <!-- Setup Phase -->
+        <div id="setup-phase" class="phase active">
+            <div class="setup-card">
+                <h2>Interview Setup</h2>
+                <form id="setup-form">
+                    <div class="form-group">
+                        <label for="candidate-name">Your Name:</label>
+                        <input type="text" id="candidate-name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skill-level">Excel Skill Level:</label>
+                        <select id="skill-level" required>
+                            <option value="">Select your level</option>
+                            <option value="beginner">Beginner (Basic formulas, formatting)</option>
+                            <option value="intermediate">Intermediate (VLOOKUP, Pivot Tables)</option>
+                            <option value="advanced">Advanced (VBA, Advanced Functions)</option>
+                        </select>
+                    </div>
+
+                    <div class="microphone-test">
+                        <p>🎙️ Microphone Test:</p>
+                        <button type="button" id="test-mic">Test Microphone</button>
+                        <div id="mic-status"></div>
+                    </div>
+
+                    <button type="submit" id="start-interview" class="primary-btn" disabled>Start Interview</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Interview Phase -->
+        <div id="interview-phase" class="phase">
+            <div class="interview-controls">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-text" id="progress-text">Question 0 of 0</div>
+            </div>
+
+            <div class="interview-content">
+                <div class="interviewer-section">
+                    <div class="interviewer-avatar">🤖</div>
+                    <div class="speech-bubble" id="question-bubble">
+                        <p id="current-question">Welcome! Let's start your Excel interview.</p>
+                    </div>
+                </div>
+
+                <div class="controls-section">
+                    <div class="voice-controls">
+                        <button id="start-recording" class="voice-btn">
+                            <span class="mic-icon">🎤</span>
+                            <span class="btn-text">Click to Answer</span>
+                        </button>
+                        <button id="stop-recording" class="voice-btn hidden" disabled>
+                            <span class="stop-icon">⏹️</span>
+                            <span class="btn-text">Stop Recording</span>
+                        </button>
+                    </div>
+
+                    <div class="transcription-section">
+                        <h4>Your Response:</h4>
+                        <div id="transcription" class="transcription-box">
+                            Your response will appear here...
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="submit-response" class="primary-btn" disabled>Submit Response</button>
+                        <button id="skip-question" class="secondary-btn">Skip Question</button>
+                        <button id="end-interview" class="danger-btn">End Interview</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feedback-section hidden" id="feedback-section">
+                <h4>Question Feedback:</h4>
+                <div id="question-feedback"></div>
+            </div>
+        </div>
+
+        <!-- Results Phase -->
+        <div id="results-phase" class="phase">
+            <div class="results-card">
+                <h2>📊 Interview Results</h2>
+                <div id="results-content">
+                    <!-- Results will be populated here -->
+                </div>
+                <div class="results-actions">
+                    <button id="download-report" class="primary-btn">Download Report</button>
+                    <button id="start-new-interview" class="secondary-btn">Start New Interview</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audio Elements -->
+        <audio id="success-sound" preload="auto">
+            <source src="{{ url_for('static', filename='sounds/success.mp3') }}" type="audio/mpeg">
+        </audio>
+        <audio id="error-sound" preload="auto">
+            <source src="{{ url_for('static', filename='sounds/error.mp3') }}" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

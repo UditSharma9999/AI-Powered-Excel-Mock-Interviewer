@@ -1,0 +1,309 @@
+
+/* Modern Interview Application Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;}
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;}
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);}
+
+.header p {font-size: 1.2em;opacity: 0.9;}
+.phase {display: none;}
+.phase.active {display: block;}
+/* Setup Phase */
+.setup-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 500px;
+    margin: 0 auto;}
+.form-group {margin-bottom: 20px;}
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;}
+.form-group input:focus,
+.form-group select:focus {outline: none;border-color: #667eea;}
+.microphone-test {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;}
+.microphone-test p {margin-bottom: 10px;font-weight: 600;}
+/* Buttons */
+.primary-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+}
+.primary-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);}
+.primary-btn:disabled {opacity: 0.6;cursor: not-allowed;}
+.secondary-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.danger-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 5px;}
+/* Interview Phase */
+.interview-controls {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e1e1e1;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;}
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 0%;
+    transition: width 0.5s ease;}
+.progress-text {
+    text-align: center;
+    font-weight: 600;
+    color: #666;}
+.interview-content {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);}
+.interviewer-section {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;}
+
+.interviewer-avatar {
+    font-size: 3em;
+    margin-right: 20px;
+    flex-shrink: 0;}
+.speech-bubble {
+    background: #f8f9fa;
+    border-radius: 15px 15px 15px 5px;
+    padding: 20px;
+    position: relative;
+    flex-grow: 1;
+    animation: fadeInUp 0.5s ease;}
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 20px;
+    border: 10px solid transparent;
+    border-right-color: #f8f9fa;}
+.voice-controls {text-align: center;margin-bottom: 30px;}
+.voice-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 20px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;}
+.voice-btn:hover:not(:disabled) {transform: scale(1.05);box-shadow: 0 5px 20px rgba(40, 167, 69, 0.4);}
+.voice-btn:disabled {opacity: 0.6;cursor: not-allowed;}
+.voice-btn.recording {background: #dc3545;animation: pulse 1s infinite;}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }}
+.transcription-section {margin-bottom: 30px;}
+.transcription-section h4 {margin-bottom: 15px;color: #333;}
+.transcription-box {
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 100px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    transition: border-color 0.3s ease;}
+.transcription-box.active {border-color: #667eea;background: #fff;}
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;}
+.feedback-section {
+    background: #e8f5e8;
+    border: 1px solid #c3e6cb;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;}
+.feedback-section h4 {color: #155724;margin-bottom: 15px;}
+/* Results Phase */
+.results-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 800px;
+    margin: 0 auto;}
+.results-summary {text-align: center;margin-bottom: 30px;}
+.score-display {
+    font-size: 4em;
+    font-weight: bold;
+    margin: 20px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;}
+.proficiency-level {
+    font-size: 1.5em;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.proficiency-advanced {background: #d4edda;color: #155724;}
+.proficiency-intermediate {background: #fff3cd;color: #856404;}
+.proficiency-basic {background: #f8d7da;color: #721c24;}
+.proficiency-beginner {background: #f1f3f4;color: #5f6368;}
+.results-details {margin-top: 30px;}
+.question-result {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.question-result h5 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.score-breakdown {
+    display: flex;
+    gap: 20px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.score-item {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    min-width: 120px;
+}
+.score-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #667eea;
+}
+.recommendations {
+    background: #e7f3ff;
+    border: 1px solid #b8daff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+.recommendations h4 {color: #004085;margin-bottom: 15px;}
+.recommendations ul {list-style-type: none;padding: 0;}
+.recommendations li {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border-left: 4px solid #667eea;
+}
+.results-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Utility Classes */
+.hidden {display: none !important;}
+.text-center {text-align: center;}
+.mb-20 {margin-bottom: 20px;}
+.fade-in {animation: fadeIn 0.5s ease;}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeInUp {
+    from { opacity: 0;transform: translateY(20px);}
+    to { opacity: 1;transform: translateY(0);}
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {padding: 10px;}
+    .header h1 {font-size: 2em;}
+    .setup-card,
+    .interview-content,
+    .results-card {padding: 20px;}
+    .interviewer-section {flex-direction: column;text-align: center;}
+    .interviewer-avatar {margin: 0 0 15px 0;}
+    .action-buttons {flex-direction: column;}
+    .score-breakdown {justify-content: center;}
+    .results-actions {flex-direction: column;}
+}
+@media (max-width: 480px) {
+    .voice-btn {padding: 15px 25px;font-size: 16px;}
+    .score-display {font-size: 3em;}
+    .proficiency-level {font-size: 1.2em;}
+}
