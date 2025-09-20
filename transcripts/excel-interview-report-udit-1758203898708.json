@@ -1,0 +1,30 @@
+{
+  "candidate_name": "udit",
+  "skill_level": "beginner",
+  "total_score": 5,
+  "max_possible_score": 26,
+  "percentage": 19.2,
+  "proficiency_level": "Beginner",
+  "questions_answered": 1,
+  "interview_duration": "0:00:16.056118",
+  "detailed_scores": [
+    {
+      "score": 1,
+      "technical_accuracy": 1,
+      "communication_clarity": 7,
+      "keyword_coverage": 0,
+      "feedback": "Response evaluated using keyword matching. Consider providing more detailed technical explanation.",
+      "suggestions": "Try to include these key concepts: spreadsheet, data, calculations, analysis, rows, columns",
+      "strengths": "Answer provided within time limit",
+      "weighted_score": 5
+    }
+  ],
+  "overall_feedback": "Foundational Excel concepts need development. Consider taking an Excel basics course.",
+  "recommendations": [
+    "Practice basic Excel formulas and functions",
+    "Learn about cell referencing (relative vs absolute)",
+    "Consider pursuing Microsoft Excel certification"
+  ],
+  "generated_date": "2025-09-18T13:58:18.702Z",
+  "application": "AI-Powered Excel Mock Interviewer"
+}
