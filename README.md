@@ -1,5 +1,5 @@
 
-# Design Document & Approach Strategy for AI-Powered Excel Mock Interviewer
+# AI-Powered Excel Mock Interviewer
 
 ## 1. Project Overview
 The AI-Powered Excel Mock Interviewer aims to automate technical interviews by simulating real interview scenarios focused on Excel skills. The system evaluates candidate answers using AI for technical accuracy, communication, completeness, and practical understanding.
